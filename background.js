@@ -1,7 +1,7 @@
 const getExistingTabIdWithUrl = async (url, newTabId) => {
   const tabs = await chrome.tabs.query({});
   const existingTab = tabs.find(tab => tab.url === url && tab.id !== newTabId);
-  return existingTab.id ?? null;
+  return existingTab?.id ?? null;
 };
 
 const focusAndRemoveDuplicateTab = async (url, newTabId) => {
