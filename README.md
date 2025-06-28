@@ -9,8 +9,6 @@ A TypeScript Chrome extension that automatically prevents duplicate tabs by focu
 - Handles cross-window tab focusing
 - Ignores system URLs (chrome://, about:, etc.)
 - Normalizes URLs by removing hash fragments
-- Debounced processing for better performance
-- Written in TypeScript with full type safety
 
 ## Installation
 
@@ -32,8 +30,6 @@ npm install
 ### Scripts
 
 - `npm run build` - Build TypeScript to JavaScript
-- `npm run build:watch` - Build in watch mode
-- `npm run dev` - Start development (watch mode)
 - `npm test` - Run tests
 - `npm run test:watch` - Run tests in watch mode
 - `npm run lint` - Run ESLint on TypeScript files
@@ -50,8 +46,6 @@ src/
 ├── background.test.ts     # Tests for background script
 dist/
 ├── background.js          # Compiled JavaScript (generated)
-test/
-├── setup.ts              # Jest setup file
 ```
 
 ### Testing
@@ -68,15 +62,3 @@ npm test
 - `dist/background.js` - Compiled JavaScript (referenced by manifest)
 - `manifest.json` - Extension manifest
 - `tsconfig.json` - TypeScript configuration
-- `test/` - Test files and setup
-- Configuration files for ESLint, Prettier, and Jest
-
-## How It Works
-
-1. Listens for tab creation and URL changes
-2. Normalizes URLs by removing hash fragments
-3. Searches for existing tabs with the same normalized URL
-4. If found, focuses the existing tab and removes the duplicate
-5. Uses debouncing to handle rapid tab operations efficiently
-
-All code is written in TypeScript for better maintainability and type safety.
