@@ -4,4 +4,3 @@ dist/
 *.log
 .DS_Store
 test/setup.js
-extension.zip
